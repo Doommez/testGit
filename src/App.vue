@@ -16,6 +16,9 @@
   <router-link to="/three">
     three page
   </router-link>
+  <router-link to="/dataFetching">
+    dataFetching
+  </router-link>
   <router-view />
 </template>
 

@@ -2,6 +2,7 @@
   <div>
     <h1>Hallo</h1>
     <div>props: {{ name }}</div>
+
   </div>
 </template>
 
