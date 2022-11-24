@@ -5,14 +5,16 @@ import AppThree from './components/AppThree.vue';
 import AppSecondChildren from './components/AppSecondChildren.vue';
 import App404Error from './components/App404Error.vue';
 import AppDataFetching from './components/AppDataFetching.vue';
+import AppDataFetchingUser from './components/AppDataFetchingUser.vue';
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       path: '/hello',
-      name: 'home',
+
       component: AppFirst,
+      alias: '/',
     },
     {
       path: '/second/:id/:count',
@@ -29,13 +31,15 @@ export default createRouter({
       path: '/three',
       component: AppThree,
     },
-    {
-      path: '/:pathMatch(.*)*',
-      component: App404Error,
-    },
+
     {
       path: '/dataFetching',
       component: AppDataFetching,
+    },
+    {
+      path: '/dataFetching/user/:id',
+      name: 'user',
+      component: AppDataFetchingUser,
     },
   ],
 });

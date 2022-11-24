@@ -6,7 +6,6 @@
   </div>
   <router-link
     to="/hello"
-    :name="name"
   >
     first page
   </router-link>
@@ -24,7 +23,6 @@
 
 <script setup>
 
-  const name = 'aaaa';
 </script>
 
 <style lang="scss" scoped>

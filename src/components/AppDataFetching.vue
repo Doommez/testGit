@@ -12,7 +12,9 @@
           v-for="user in users"
           :key="user.id"
         >
-          <div>{{ user.firstName }}</div>
+          <router-link :to="{name: 'user',params: {id:user.id} }">
+            <div>{{ user.firstName }}</div>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -21,27 +23,27 @@
 
 <script setup>
   import {
-    ref, watch,
+    ref,
   } from 'vue';
+  import {useRoute} from 'vue-router';
   import TheLoader from './TheLoader.vue';
   import {useLoadingData} from '../composable/useLoadingData';
 
   const {request, isLoaded} = useLoadingData();
 
   const users = ref(null);
+  const route = useRoute();
 
-
+  console.log(route);
   const getUsers = async () => {
     const data = await request('https://dummyjson.com/users');
     users.value = data.users;
     console.log(users.value);
   };
 
+
   getUsers();
 
-  watch(users, () => {
-    console.log(users.value);
-  });
 
 
 
